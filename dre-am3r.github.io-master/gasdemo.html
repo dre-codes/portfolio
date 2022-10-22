@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>GasMapApp</title>
+    <style>
+    .btn-outline {
+        background-color: transparent;
+        transition: all .5s;
+    }
+    
+    #map {
+        height: 60%;
+        width: 100%;
+    }
+    
+    .btn-success.btn-outline {
+        color: #5cb85c;
+    }
+    
+    .btn-success.btn-outline:hover {
+        color: white;
+    }
+    
+    .row {
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div id="map"></div>
+    </div>
+    <br>
+    <div class="container">
+        <form role="form" class="form-inline text-center">
+            <button type="button" class="btn btn-success btn-outline" onclick="loadall();">Load All Locations</button>
+            <button type="button" disabled="" class="btn btn-success btn-outline" onclick="closest();">Use Current Location</button>
+            <div class="form-group">
+                <select id="select" class="form-control selectWidth" onchange="parishes(this.value)" style="  width:auto;
+        border-color:#4cae4c;
+        color:#4cae4c;">
+                    <option value="">--Select Parish--</option>
+                    <option value="KINGSTON &amp; ST. ANDREW">Kingston</option>
+                    <option value="KINGSTON &amp; ST. ANDREW">St. Andrew</option>
+                    <option value="ST. CATHERINE">St. Catherine</option>
+                    <option value="CLARENDON">Clarendon</option>
+                    <option value="ST. THOMAS">St. Thomas</option>
+                    <option value="ST. ELIZABETH">St. Elizabeth</option>
+                    <option value="ST. JAMES">St. James</option>
+                    <option value="ST. MARY">St. Mary</option>
+                    <option value="ST. ANN">St. Ann</option>
+                    <option value="WESTMORELAND">Westmoreland</option>
+                    <option value="TRELAWNY">Trelawny</option>
+                    <option value="HANOVER">Hanover</option>
+                    <option value="MANCHESTER">Manchester</option>
+                    <option value="PORTLAND">Portland</option>
+                </select>
+            </div>
+            <div class="btn-group">
+                <button type="button" onclick="location.href='analysis.html'" class="btn btn-success btn-outline">
+                    Analytics Page</button>
+            </div>
+        </form>
+    </div>
+    <h1 class="text-center">GasMapApp</h1>
+    <div class="text-center">
+        <img src="img/gas/gas.png">
+    </div>
+    <script src="js/jquery.js"></script>
+    <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgqn8HOW2MLP1OtP_N8PkExkTkwNnejAU&amp;callback=initMap">
+    </script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/gas.js"></script>
+</body>
+
+</html>

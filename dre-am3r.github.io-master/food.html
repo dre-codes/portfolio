@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>FoodMe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/food.css">
+    <link rel="stylesheet" href="galleria-classicmod/galleria.classicmod.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.4.5/galleria.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.4.0/languages/go.min.js"></script>
+    <script type="text/javascript" src="js/slick.min.js"></script>
+    <script src="jquery.waypoints.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom:0px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Portfolio</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right ">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="index.html#aboutme">About Me</a></li>
+                    <li><a href="index.html#hireme">Why Hire Me</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Work Examples <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="food.html">FoodMe</a></li>
+                            <li><a href="capstone.html">Capstone</a></li>
+                            <li><a href="mockup.html" target="blank_">Mockup</a></li>
+                            <li><a href="gas.html">Gas Map</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="parallax">
+            <div class="jumbotron1 index text-center">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4">
+                        <h1 style="color:white;font-size:bold;" id="parallaxText">FoodMe</h1>
+                        <a href="https://fast-everglades-61345.herokuapp.com" target="blank_" class="btn btn-primary" role="button">View Demo</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>About this project</h1>
+                <p>This project was done to challenge myself to start creating web applications with interactions with a database. Ruby on Rails was chosen because it is considered to be one of the newer technologies with a growing community and I was up for the task. Once I found out that companies like Twitter & Twitch (not anymore), Airbnb and Soundcloud used rails I was even more excited to start using it. Also this project is a WIP (even though all core features are done) which I'm planning to release soon and as a result the process, additional features and redesign currently being introduced will not be explained therefore the demo website is password protected (you can contact me via email for the credentials).</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>The Technology Stack</h1>
+                <ul>
+                    <li>
+                        Ruby on Rails
+                    </li>
+                    <li>
+                        SQLite3
+                    </li>
+                    <li>
+                        Twitter Bootstrap
+                    </li>
+                    <li>
+                        Various Javascript Libraries
+                    </li>
+                    <li>
+                        Google Maps API
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Challenges Faced</h1>
+                <p>The first challenge was learning the world of Ruby on Rails, the syntax, file structure, gems, interacting with the terminal and deepening my knowledge of databases. Another challenge was figuring out the best way to layout out my idea (I'm a fan of minimalism) without making the app crowded. Last but not least, translating the app from SQLite3 to Postgresql (Rails by default uses SQLite3 by default but most hosting services don't, go figure) was a headache. Once the app was on heroku I realized the database was empty so I knew there was a problem with the database being seeded. I had to install postgres and wrap my head around the different commands, use a gem which allows one to launch a server with one database type and a client to pull from that server into your desired database type after creating local seed files. After successfully migrating the database a push was made to heroku and success! It works.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h1>What Did I learn?</h1>
+                <p>I got more familiar and comfortable with using the linux terminal along with git and heroku commands. I also feel more comfortable (fell in love with) using ruby on rails, there is a gem for everything, the community is very patient with helping and I look forward to continue using the framework to create amazing web applications.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

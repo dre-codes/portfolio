@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Capstone</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/capstone.css">
+    <link rel="stylesheet" href="galleria-classicmod/galleria.classicmod.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='unitegallery/css/unite-gallery.css' type='text/css' />
+    <link rel='stylesheet' href='unitegallery/themes/default/ug-theme-default.css' type='text/css' />
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.4.5/galleria.min.js"></script>
+    <script src="js/typed.js"></script>
+    <script src="parallax.min.js"></script>
+    <script src="jquery.waypoints.js"></script>
+    <script type='text/javascript' src='unitegallery/js/unitegallery.min.js'></script>
+    <script type='text/javascript' src='unitegallery/themes/default/ug-theme-default.js'></script>
+    <style type="text/css">
+        body {
+       
+            font-family: 'Quicksand', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom:0px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Portfolio</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right ">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="index.html#aboutme">About Me</a></li>
+                    <li><a href="index.html#hireme">Why Hire Me</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Work Examples <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="food.html">FoodMe</a></li>
+                            <li><a href="capstone.html">Capstone</a></li>
+                            <li><a href="mockup.html" target="blank_">Design Mockup</a></li>
+                            <li><a href="gas.html">Gas Map</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!--<embed src="poster.pdf" width="800px" height="2100px" />-->
+                <div class="jumbotron1 capstone">
+                    <!--<h1 class="text-center" id="parallaxText" style="color:white;">Aquaponics</h1>      
+            <div class="row">
+               <div class="col-md-4 col-md-offset-4">
+                        <button class="btn btn-primary " onClick="window.open('poster.pdf');" style="margin-bottom:10px;"> View Project Poster</button>
+                        <!--<input type="button"  class="btn "value="Open Work Order" onClick="window.open('poster.pdf');">
+              </div>
+          </div> -->
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-4 text-center">
+                            <h1 style="color:white;font-size:bold;" id="parallaxText">Aquapoics</h1>
+                            <button class="btn btn-primary " onClick="window.open('poster.pdf');" style="margin-bottom:10px;">
+                                View Project Poster</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class=>About Project</h3>
+                <p><img src="img/capstone/aqua.png" align="left" class="img-responsive" id="about_pic">The modern world has seen society relinquish the ability to grow its own food, leaving the job to a select few. Additionally, due to the ever growing scarcity of resources such as soil and water, efficient techniques should be increasingly employed when growing plants. One such technique is Aquaponics, a system of aquaculture in which waste produced by fish is used to supply nutrients to plants, in exchange, purifying the water for the fish. Aquaponics is however a very involved practice that requires a level of time, equipment and knowledge that the average person does not possess. Our solution aims to make the act of operating such a system as effortless as possible. This is achieved through the automation of the aquaponics cycle as well as providing users with remote monitoring facilities through web and mobile apps. The home friendly system gives anyone the opportunity to grow their own food without much hassle.</p>
+                <div class="col-md-6 col-offset-md-3">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class=>The Design</h3>
+                <div class="col-md-8">
+                    <img src="img/capstone/method.png" style="height:100%;width:100%;">
+                </div>
+                <div class="col-md-4">
+                    <p>The system would be made up of three main components that would handle a certain task. The different components that make up the system included
+                    </p>
+                    <ul>
+                        <li class="">
+                            <p>Aquaponics Setup with embedded microcontroller - the microcontroller reads data from the setup through the three sensors (temperature, ph and ultrasonic range). The controller (connected to a laptop/computer) would then send this environment and state information to a remote server through an API.</p>
+                        </li>
+                        <li class="">
+                            <p>Remote Server and API - receives data from the microcontroller and stores readings from the setup for use by end-user applications (mobile and web app).</p>
+                        </li>
+                        <li class="">
+                            <p>Mobile and Web Application - Offers remote monitoring of system. Also gives alerts based on abnormalities within the system.</p>
+                        </li>
+                    </ul>
+                    <p>The controller which manages the aquaponics setup , also collects environmental data (temperature, pH and water level) and sends it to a remote server, utilizing an API. This server then makes these collected readings available to users through client applications by utilizing this API. These applications would offer remote monitoring of the system as well as providing notification, alerting users of matters that need their attention.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 tech">
+                <h3>Technologies Used</h3>
+                <img src="tech.png " class="img-responsive" style="width:100%;margin-left: -10px;">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class=>How It Works</h3>
+                <div class="row">
+                    <div class="col-xs-18 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <img src="img/capstone/sensor.jpg" style="height:100%;width:100%" alt="">
+                            <div class="caption">
+                                <h4>Step 1</h4>
+                                <p>Sensors detect readings (Temperature, pH, Water Level) from water and sends values to our API server via a python script.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-18 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <img src="img/capstone/controller.jpg" alt="" style="height:100%;width:100%">
+                            <div class="caption">
+                                <h4>Step 2</h4>
+                                <p>The microcontroller decides when to turn on/off the pump to the plant bed based on water level readings so the plant bed is never flooded and the tank level is never too low.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-18 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <img src="img/capstone/plants.jpg" alt="" style="height:100%;width:100%">
+                            <div class="caption">
+                                <h4>Step 3</h4>
+                                <p>The water is full of nutrients thanks to the excretion of the fish. The plants use this nutrient rich water to grow while the rocky plany bed allows for the water to be filtered as it drips back into the fish tank.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-18 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <img src="img/capstone/app.jpg" style="height:100%;width:100%" id="screen" alt="">
+                            <div class="caption">
+                                <h4>Step 4</h4>
+                                <p>The client side applications pulls from the API and displays current results.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-18 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <img src="img/capstone/web.jpg" style="height:100%;width:100%" id="web" alt="" style="height:188px;">
+                            <div class="caption">
+                                <h4>Step 5</h4>
+                                <p>Both the web app and mobile app displays values for a specific time period (example past hour) visually in the form of charts.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-18 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <img src="img/capstone/fish.jpg" style="height:100%;width:100%" alt="">
+                            <div class="caption">
+                                <h4>Step 6</h4>
+                                <p>Mobile app allows users to choose what fish they have in the tank. Each fish type has a preferred environment to strive in, once one of the readings drop below optimal it will alert the user via a notification.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-18 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <img src="img/capstone/tabs.jpg" style="height:100%;width:100%" alt="">
+                            <div class="caption">
+                                <h4>Step 7</h4>
+                                <p>Continue monitoring different readings by switching between tabs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-18 col-sm-6 col-md-3">
+                        <div class="thumbnail">
+                            <img src="img/capstone/home.jpg" style="height:100%;width:100%" alt="">
+                            <div class="caption">
+                                <h4>Step 8</h4>
+                                <p>Enjoy your automated aquaponics system.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                 <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                    My Role</a>
+                  </h4>
+                        </div>
+                        <div id="collapse1" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <p>My role involved creating the landing page website giving information about the project and also the web application that allows users to view readings from the API in a chart format.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        What Did I Learn?</a>
+      </h4>
+                        </div>
+                        <div id="collapse2" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>Doing this project was a great learning experience, especially being a web developer focused on static websites. This project taught me about APIs, how they work, their purpose and how to interact with them. I was also able to tackle Javascript and modifying the DOM. Javascript was used to interact with the endpoints of our inhouse API and the values then passed to an external javascript library to then draw and animate charts on the website.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+       Challenges Faced</a>
+      </h4>
+                        </div>
+                        <div id="collapse3" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>We opted for our client side applications to be real time or as near to realtime as possible so it is more beneficial to the user, as a result our api was pushing data at set time interval. The problem was whenever the charts pulled data from the api the chart was drawn once, when new data is pushed the charts were not redrawn and it became apparent that it was not dynamic. As a quick fix I implemented a timer to refresh the browser at the same time interval that the API was pushing data, that way the chart would be current and the user would enjoy the visuals of the charts being reanimated. Of course this method could have been improved by using AJAX so that the charts were reloaded instead of the entire webpage however time was against the team.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+       Conclusion </a>
+      </h4>
+                        </div>
+                        <div id="collapse4" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>This project turned out to be one of my biggest accomplishments. I was forced to step out of my comfort zone of static websites and had to learn quickly to meet deadlines. I also had to work with a team which I enjoyed, learning more about other members' strengths and seeing all our hard work pay off was truly amazing. Our project impressed computer science lecturers, so much so that it was chosen to represent the department of Computer Science in a science fair at the university. The project was demonstrated to onlookers and was later judged where it ultimately took first place. Thanks to everyone that helped in this project. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>More pictures</h3>
+            </div>
+        </div>
+        <div class="row media">
+            <div class="col-md-6 col-md-offset-3">
+                <div id="gallery">
+                    <img alt="Image 2 Title" src="img/capstone/slide0.jpg" data-image="img/capstone/slide0.jpg" data-description="First Place Certificate">
+                    <img alt="Image 2 Title" src="img/capstone/slide5.jpg" data-image="img/capstone/slide5.jpg" data-description="View Of Entire Setup">
+                    <img alt="Image 1 Title" src="img/capstone/slide3.jpg" data-image="img/capstone/slide3.jpg" data-description="Login Page">
+                    <img alt="Image 2 Title" src="img/capstone/slide2.jpg" data-image="img/capstone/slide2.jpg" data-description="Current Readings In Web App">
+                    <img alt="Image 2 Title" src="img/capstone/slide10.jpg" data-image="img/capstone/slide10.jpg" data-description="Another View Of Complete Setup">
+                    <img alt="Image 2 Title" src="img/capstone/slide6.jpg" data-image="img/capstone/slide6.jpg" data-description="View Of The Live Fish">
+                    <img alt="Image 1 Title" src="img/capstone/slide7.jpg" data-image="img/capstone/slide7.jpg" data-description="Current Readings In Mobile App">
+                    <img alt="Image 1 Title" src="img/capstone/slide8.jpg" data-image="img/capstone/slide8.jpg" data-description="Mockup Of Plants Page">
+                    <img alt="Image 1 Title" src="img/capstone/slide9.jpg" data-image="img/capstone/slide9.jpg" data-description="View Of Charts In Mobile App">
+                    <img alt="Image 1 Title" src="img/capstone/slide11.jpg" data-image="img/capstone/slide11.jpg" data-description="Part Of Landing Page">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery("#gallery").unitegallery();
+    });
+    </script>
+</body>
+
+</html>

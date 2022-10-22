@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireMe</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/user.css">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab' rel='ssss' type='text/css'>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="js/typed.js"></script>
+    <script src="parallax.min.js"></script>
+    <script src="jquery.waypoints.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="margin-bottom:0px;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Portfolio</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right ">
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="index.html#aboutme">About Me</a></li>
+                    <li><a href="index.html#hireme">Why Hire Me</a></li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Work Examples <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="food.html">FoodMe</a></li>
+                            <li><a href="capstone.html">Capstone</a></li>
+                            <li><a href="mockup.html" target="blank_">Design Mockup</a></li>
+                            <li><a href="gas.html">Gas Map</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="parallax">
+        <div class="jumbotron1 index text-center" style="background-image: url(bg.png); " id="bg">
+            <div>
+                <h1>I AM A:</h1>
+            </div>
+            <p id="typing_effect"></p>
+            <p class="line">___________________</p>
+        </div>
+    </div>
+    <div class="row section1">
+        <div class="col-md-4 sec  " id="aboutme">
+            <img src="me5.jpg" class="center-block img-responsive" id="pic" style=" width:500px;
+  height:400px;">
+        </div>
+        <div class="col-md-7 col-md-offset-1">
+            <h2 style="text-align:center;">Who Am I?</h2>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <br>
+                    <p style="padding:0px;" class="text-center">My name is Andre Allen; I'm 23 years old and reside in Kingston, Jamaica. I earned a bachelor's degree in Computer Science from the University of the West Indies, Mona Campus, and was able to hone my skills in frontend web development within a professional setting. I enjoy evoking emotions through photography and videography, and channel my aptitude for capturing detail into designing striking and memorable web pages & applications.
+                    </p>
+                    <div class="text-center">
+                        <button class="btn btn-primary " onClick="window.open('resume.pdf');" style="margin-bottom:10px;"> View CV</button>
+                        <!--<input type="button"  class="btn "value="Open Work Order" onClick="window.open('poster.pdf');">-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-12 section2">
+            <p>"HARD WORK BEATS TALENT WHEN TALENT DOESN'T WORK HARD"</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 skills slideanim">
+            <h3 class="text-center skills">Skills & Interests</h3>
+            <ul class="skills-bar-container">
+                <label>HTML5 / Twitter Bootstrap Framework</label>
+                <span class="percent" id="html-percent"></span>
+                <li>
+                    <span class="progressbar progressred" id="progress-html"></span>
+                </li>
+                <label>CSS3</label>
+                <span class="percent" id="css-percent"></span>
+                <li>
+                    <span class="progressbar progressblue" id="progress-css"></span>
+                </li>
+                <label>Javascript</label>
+                <span class="percent" id="javascript-percent"></span>
+                <li>
+                    <span class="progressbar progresspurple" id="progress-javascript"></span>
+                </li>
+                <label>JQuery</label>
+                <span class="percent" id="php-percent"></span>
+                <li>
+                    <span class="progressbar progressorange" id="progress-php"></span>
+                </li>
+                <label>Ruby / Ruby On Rails (Currently Learning)</label>
+                <span class="percent" id="ruby-percent"></span>
+                <li>
+                    <span class="progressbar progressgreen" id="progress-ruby"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="row text-center">
+        <h1>Examples Of Work</h1>
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <img src="food.jpg" alt="..." style="width:550px;height:250px;">
+                <div class="caption">
+                    <h3>FoodMe</h3>
+                    <p> <a href="food.html" class="btn btn-default" role="button">Find Out More!</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <img src="fish.jpg" alt="..." style="width:550px;height:250px;">
+                <div class="caption">
+                    <h3>Capstone Project</h3>
+                    <p><a href="capstone.html" class="btn btn-default" role="button">Find Out More!</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="thumbnail">
+                <img src="https://static.pexels.com/photos/40120/pexels-photo-40120.jpeg" alt="..." style="width:550px;height:250px;">
+                <div class="caption">
+                    <h3>Design Mockup</h3>
+                    <p><a href="mockup.html" target="blank_" class="btn btn-default" role="button">Find Out More!</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3" id="gas">
+            <div class="thumbnail">
+                <img src="gas.jpg" alt="..." style="width:550px;height:250px;">
+                <div class="caption">
+                    <h3>GasMap</h3>
+                    <p> <a href="gas.html" class="btn btn-default" role="button">Find Out More!</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row why" id="hireme">
+        <div class="col-md-6 col-md-offset-3 slideanim">
+            <h1 class="text-center well">Why Hire Me?</h1>
+            <p class="well well-lg text-center">I am experienced in software development, as I have created multiple applications and features using various technologies, such as: Javascript, EXTJS, CSS, HTML5, Twitter Bootstrap, Ruby on Rails, and Ionic Framework. Furthermore, I, along with my teammates, received first place for the 'Best Undergraduate Demonstration Presentation Award' at the University of the West Indies 10th Conference Of The Faculty Of Science And Technology for constructing an Automated Aquaponics System; I was specifically entrusted with the responsibility to develop the web application. I am also a conscientious worker who is eager to mature and excel in the field of software development by learning from and working with seasoned professionals. Therefore, I would appreciate the opportunity to add value to your organization by leveraging my competencies.
+            </p>
+        </div>
+    </div>
+    <div class="row text-center">
+        <div class="col-md-12 ">
+            <blockquote style="border-left:none;">
+                <p style="font-style:italic;">If something is important enough, even if the odds are against you, you should still do it.</p>
+                <footer>Elon Musk</footer>
+            </blockquote>
+        </div>
+    </div>
+    <div class="row" style="background:whitesomke; ">
+        <div class="col-lg-6 col-lg-offset-3 text-center ">
+            <h1>Contact Me</h1>
+            <form id="form" method="POST">
+                <input placeholder="Email" type="text" class="form-control" name="email">
+                <div class="row">
+                    <br>
+                    <textarea placeholder="Message" class="form-control" rows="5" name="message"></textarea>
+                </div>
+                <br>
+                <div style="padding-bottom:30px;">
+                    <button class="btn btn-success" type="submit">Hire</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+    $(function() {
+        $("#typing_effect").typed({
+            strings: ["Web Designer", "Web Developer", "Creative Genius", "Dreamer"],
+            typeSpeed: 100,
+            showCursor: true,
+            loop: true,
+            cursorChar: "|",
+        });
+    });
+    </script>
+    <script>
+    $(function() { // When the page has loaded,
+        $('#aboutme').waypoint(function() {
+            setTimeout(function() {
+                //alert("Hey");
+                $('#progress-html').addClass('progress-html-class');
+            }, 100);
+
+            setTimeout(function() {
+                $('#progress-css').addClass('progress-css-class');
+            }, 100);
+
+            setTimeout(function() {
+                $('#progress-javascript').addClass('progress-javascript-class');
+            }, 100);
+
+            setTimeout(function() {
+                $('#progress-php').addClass('progress-php-class');
+            }, 100);
+
+            setTimeout(function() {
+                $('#progress-ruby').addClass('progress-ruby-class');
+            }, 100);
+        });
+    })
+    </script>
+    <script>
+    $(document).ready(function() {
+
+        var coded = "aHR0cHM6Ly9mb3Jtc3ByZWUuaW8vZHJlbGxlbnN0ZXJAZ21haWwuY29t"
+        var action = atob(coded)
+        console.log(action)
+            //action=
+        $("#form").attr('action', action);
+    })
+    $(window).scroll(function() {
+        $(".slideanim").each(function() {
+            var pos = $(this).offset().top;
+
+            var winTop = $(window).scrollTop();
+            console.log(pos + "current position");
+            console.log(winTop + "position from top + 600");
+            if (pos < winTop + 400) {
+                $(this).addClass("slide");
+            }
+        });
+    });
+    </script>
+</body>
+
+</html>

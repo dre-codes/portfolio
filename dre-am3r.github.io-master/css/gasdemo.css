@@ -1,0 +1,23 @@
+   #map {
+       height: 60%;
+       width: 100%;
+   }
+   
+   .btn {
+       border-radius: 0px;
+       padding: 10px;
+   }
+   
+   .row {
+       margin-right: 0px;
+       margin-left: 0px;
+   }
+   
+   body {
+       background-color: black;
+   }
+   /*#select{
+        width:auto;
+        border-color:#4cae4c;
+        color:#4cae4c;
+      }*/

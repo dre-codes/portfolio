@@ -1,0 +1,26 @@
+
+
+body{
+	background-color: white;
+}
+
+.row{
+      margin-right: -15px;
+    }
+     #warning-message { display: none; }
+
+    @media (max-width:425px) {
+
+        #wrapper { visibility:hidden; }
+        .container{visibility: hidden;}
+
+        #warning-message { display:block; }
+
+    }
+
+    @media only screen and (orientation:landscape){
+
+        #warning-message { display:none; }
+
+    }
+

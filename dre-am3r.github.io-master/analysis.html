@@ -1,0 +1,1165 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Analytics</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/analytics.css" rel="stylesheet">
+    <script src="js/gas.js"></script>
+    <script src="https://rawgit.com/nnnick/Chart.js/f3eb6f4a433b4f34a582842dcf7b42f710861a7d/Chart.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
+</head>
+
+<body>
+    <div id="warning-message">
+        <h3 style="padding:30%">Due to screen size landscape mode is recommended to continue</h3>
+    </div>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand"></a>
+            </div>
+            <!-- Top Menu Items -->
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation
+        menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li class="">
+                        <a href="gasdemo.html"><i class="fa fa-fw fa-table"></i> Map</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="">Dashboard
+                
+              </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+        <div class="container">
+            <div>
+                <canvas id="myChart"></canvas>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+        <!-- /#page-wrapper -->
+        <!-- /#wrapper -->
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+        alert("Tip: Not seeing chart? Try refreshing the page.");
+
+        swal("Welcome! Click on each bar to find location of station");
+
+        var ctx = document.getElementById("myChart").getContext("2d");
+
+        var max_data = [];
+        var min_data = [];
+        var loc = [];
+        var address = [];
+        var fuel_type = [];
+        var blar = [];
+        var st_an = [];
+        var st_an_mrkt = [];
+        var st_an_type = [];
+        var kgn = [];
+        var clar = [];
+        var clar_mrkt = [];
+        var clar_type = [];
+        var clar_loc = [];
+        var st_eliz = [];
+        var st_eliz_mrkt = [];
+        var st_eliz_type = [];
+        var st_eliz_loc = [];
+        var st_tho = [];
+        var st_tho_mrkt = [];
+        var st_tho_type = [];
+        var st_tho_loc = [];
+        var st_ja = [];
+        var st_ja_mrkt = [];
+        var st_ja_type = [];
+        var st_ja_loc = [];
+        var st_ann = [];
+        var st_ann_mrkt = [];
+        var st_ann_type = [];
+        var st_ann_loc = [];
+        var west = [];
+        var west_mrkt = [];
+        var west_type = [];
+        var west_loc = [];
+        var st_mry = [];
+        var st_mry_mrkt = [];
+        var st_mry_type = [];
+        var st_mry_loc = [];
+        var hano = [];
+        var hano_mrkt = [];
+        var hano_type = [];
+        var hano_loc = [];
+        var manc = [];
+        var manc_mrkt = [];
+        var manc_type = [];
+        var manc_loc = [];
+        var port = [];
+        var port_mrkt = [];
+        var port_type = [];
+        var port_loc = [];
+        var st_cath = [];
+        var st_cath_mrkt = [];
+        var st_cath_type = [];
+        var st_cath_loc = [];
+        var tre = [];
+        var tre_mrkt = [];
+        var tre_type = [];
+        var tre_loc = [];
+
+
+        /*  $("#myChart").click( 
+                      function(evt){
+                                      var activePoints = myBarChart.getBarsAtEvent(evt);
+                                      console.log(activePoints)
+                                      if (activePoints[0].value ==kmax) {
+                                          //console.log(activePoints[0].label);
+                                          swal(log);
+          
+                                         // alert(activePoints[1].value);
+                                      }
+                                          
+                                      
+                                      else if (activePoints[0].label == "St.Andrew"){
+                                          alert("log")
+          
+                                      } if (activePoints[0].label=="St. Catherine") {
+                                          swal(stclog);
+          
+                                      } if (activePoints[0].label=="Clarendon"){
+                                          swal(clarlog)
+          
+                                      }else if(activePoints[0].label=="Manchester"){
+                                          swal(manlog)
+          
+                                      }else if (activePoints[0].label == "St. Elizabeth"){
+                                          swal(stelizlog);
+          
+                                      } else if(activePoints[0].label=="Westmoreland"){
+                                          swal(westlog);
+          
+                                      }else if(activePoints[0].label=="Hanover"){
+                                          swal(hanlog);
+          
+                                      }else if(activePoints[0].label=="St. James"){
+                                          swal(stjlog)
+          
+                                      }else if (activePoints[0].label=="Trelawny"){
+                                          swal(trelog)
+          
+                                      }else if (activePoints[0].label=="St. Ann"){
+                                          swal(stalog)
+          
+                                      }else if (activePoints[0].label=="St. Mary"){
+                                          swal(stmlog)
+          
+                                      }else if (activePoints[0].label=="Portland"){
+                                          swal(plog)
+          
+                                      }else if (activePoints[0].label=="St. Thomas"){
+                                          swal(sttlog)
+                                      } 
+                                  }
+                              );   
+          
+/*          
+  $("#myChart").click( 
+       function(evt){
+           var activePoints = myBarChart.getBarsAtEvent(evt);
+               console.log(activePoints)
+              if (activePoints[1].value == kmin) {
+                                          
+                                         // alert("kmin");
+                }
+               }
+          );   
+          
+          */
+        //////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////
+        ///////////////////// KINGSTON & St //////////////////////////
+        ////////////////////////////////////////////////////////
+
+        for (i = 0; i < request.tables[0].results.length; i++) {
+            if (request.tables[0].results[i].regionname_value === "KINGSTON & ST. ANDREW") {
+                //  console.log(request.tables[0].results[i].fuelprice_price);
+                kgn.push(request.tables[0].results[i].fuelprice_price);
+                loc.push(request.tables[0].results[i].market_value);
+                address.push(request.tables[0].results[i].address_value);
+                fuel_type.push(request.tables[0].results[i].fueltype_value);
+                // alert(kgn);
+            }
+
+        }
+
+        // alert(kgn[1]);
+        var kmax = kgn[0];
+        var kmaxIndex = 0;
+
+        for (var i = 1; i < kgn.length; i++) {
+            if (kgn[i] > kmax) {
+                kmaxIndex = i;
+                kmax = kgn[i];
+            }
+        }
+
+
+        var kmin = kgn[0];
+        var kminIndex = 0;
+
+        for (var i = 1; i < kgn.length; i++) {
+            if (kgn[i] < kmin) {
+                kminIndex = i;
+                kmin = kgn[i];
+            }
+        }
+
+        //alert("this is min " + kmin);
+
+
+        console.log("this is max " + kmax);
+        console.log("this is index " + kmaxIndex);
+
+        for (i = 0; i < kgn.length; i++) {
+            if (i == kgn.length - 1) {
+                console.log(i);
+            };
+        }
+
+        console.log(request.tables[0].results);
+
+
+        max_data.push(kmax);
+        min_data.push(kmin);
+        //loc.push(kmaxIndex);
+        //locmin.push(kminIndex);
+        var klog = ("the location is " + loc[kmaxIndex] + "," + address[kmaxIndex] + "fuel type " + fuel_type[kmaxIndex]);
+
+        var kminlog = ("the location is " + loc[kminIndex] + "," + address[kminIndex] + "fuel type " + fuel_type[kminIndex]);
+
+
+        // console.log(log);
+        //console.log("lool")
+        //alert("this is 0" + kgn[0]);
+        // alert(max_data[i].regionname_value);
+
+
+        /*min_data.push(kgn.min());
+                               alert("Max value is: "+kgn.max()+"\nMin value is: "+ kgn.min());
+                               alert(max_data);
+          */
+        //alert(market);
+        for (i = 0; i < request.tables[0].results.length; i++) {
+            if (request.tables[0].results[i].regionname_value === "KINGSTON & ST. ANDREW") {
+                //  console.log(request.tables[0].results[i].fuelprice_price);
+                st_an.push(request.tables[0].results[i].fuelprice_price);
+
+            }
+        }
+
+        var kmax = kgn[0];
+        var kmaxIndex = 0;
+
+        for (var i = 1; i < kgn.length; i++) {
+            if (kgn[i] > kmax) {
+                kmaxIndex = i;
+                kmax = kgn[i];
+            }
+        }
+
+        var kmin = kgn[0];
+        var kminIndex = 0;
+
+        for (var i = 1; i < kgn.length; i++) {
+            if (kgn[i] < kmin) {
+                kminIndex = i;
+                kmin = kgn[i];
+            }
+        }
+
+
+
+        console.log("this is max " + kmax);
+        console.log("this is index " + kmaxIndex);
+
+        for (i = 0; i < kgn.length; i++) {
+            if (i == kgn.length - 1) {
+                console.log(i);
+            };
+        }
+
+
+        console.log(request.tables[0].results);
+
+
+
+        max_data.push(kmax);
+        min_data.push(kmin);
+
+        kmaxlog = ("the location is " + loc[kmaxIndex] + "," + address[kmaxIndex] + "fuel type " + fuel_type[kmaxIndex]);
+
+
+
+        var kminlog = ("the location is " + loc[kminIndex] + "," + address[kminIndex] + "fuel type " + fuel_type[kminIndex]);
+
+
+        //min_data.push(st_an.min());
+        //alert("Max value is c: "+st_an.max()+"\nMin value is: "+ st_an.min());
+        //alert(max_data);
+
+        for (i = 0; i < request.tables[0].results.length; i++) {
+            if (request.tables[0].results[i].regionname_value === "ST. CATHERINE") {
+                //  console.log(request.tables[0].results[i].fuelprice_price);
+                st_cath.push(request.tables[0].results[i].fuelprice_price);
+                st_cath_mrkt.push(request.tables[0].results[i].market_value);
+                st_cath_type.push(request.tables[0].results[i].fueltype_value);
+                st_cath_loc.push(request.tables[0].results[i].address_value);
+
+            }
+
+        }
+
+        var stcmax = st_cath[0];
+        var stcmaxIndex = 0;
+
+        for (var i = 1; i < st_cath.length; i++) {
+            if (st_cath[i] > stcmax) {
+                stcmaxIndex = i;
+                stcmax = st_cath[i];
+            }
+        }
+
+
+        var stcmin = st_cath[0];
+        var stcminIndex = 0;
+
+        for (var i = 1; i < st_cath.length; i++) {
+            if (kgn[i] < stcmin) {
+                stcminIndex = i;
+                stcmin = st_cath[i];
+            }
+        }
+
+        console.log("this is max " + stcmax);
+        console.log("this is index " + stcmaxIndex);
+        stclog = ("The brand is " + st_cath_mrkt[stcmaxIndex] + " located at " + st_cath_loc[stcmaxIndex] + ".The fuel type for this price is " + st_cath_type[stcmaxIndex])
+
+        stcminlog = ("The brand is " + st_cath_mrkt[stcminIndex] + " located at " + st_cath_loc[stcminIndex] + ".The fuel type for this price is " + st_cath_type[stcminIndex])
+
+        for (i = 0; i < st_cath.length; i++) {
+            if (i == st_cath.length - 1) {
+                console.log(i);
+            };
+        }
+
+
+
+        console.log(request.tables[0].results);
+
+
+
+        max_data.push(stcmax);
+        min_data.push(stcmin);
+        //loc.push(loc[stcmax]);
+        console.log("the location is Catherine " + loc[stcmaxIndex] + "," + address[stcmaxIndex] + "fuel type " + fuel_type[stcmaxIndex]);
+
+        //alert(max_data);
+
+        for (i = 0; i < request.tables[0].results.length; i++) {
+            if (request.tables[0].results[i].regionname_value === "CLARENDON") {
+                //  console.log(request.tables[0].results[i].fuelprice_price);
+                clar.push(request.tables[0].results[i].fuelprice_price);
+                clar_mrkt.push(request.tables[0].results[i].market_value);
+                clar_loc.push(request.tables[0].results[i].address_value);
+                clar_type.push(request.tables[0].results[i].fueltype_value);
+            }
+        }
+
+        var cmax = clar[0];
+        var cmaxIndex = 0;
+
+        for (var i = 1; i < clar.length; i++) {
+            if (clar[i] > cmax) {
+                cmaxIndex = i;
+                cmax = clar[i];
+            }
+        }
+
+        var cmin = clar[0];
+        var cminIndex = 0;
+
+        for (var i = 1; i < clar.length; i++) {
+            if (clar[i] < cmin) {
+                cminIndex = i;
+                cmin = clar[i];
+            }
+        }
+
+
+        console.log("this is index " + cmaxIndex);
+
+        for (i = 0; i < clar.length; i++) {
+            if (i == clar.length - 1) {
+                console.log(i);
+            };
+        }
+
+
+
+        console.log(request.tables[0].results);
+
+
+
+        max_data.push(cmax);
+        min_data.push(cmin);
+        clarlog = ("The brand is " + clar_mrkt[cmaxIndex] + " located at " + clar_loc[cmaxIndex] + ".The fuel type for this price is " + clar_type[cmaxIndex])
+        clarminlog = ("The brand is " + clar_mrkt[cminIndex] + " located at " + clar_loc[cminIndex] + ".The fuel type for this price is " + clar_type[cminIndex])
+
+        // alert("Max value is c: "+clar.max()+"\nMin value is: "+ clar.min());
+        // alert(max_data);
+
+        for (i = 0; i < request.tables[0].results.length; i++) {
+            if (request.tables[0].results[i].regionname_value === "MANCHESTER") {
+                //  console.log(request.tables[0].results[i].fuelprice_price);
+                manc.push(request.tables[0].results[i].fuelprice_price);
+                manc_mrkt.push(request.tables[0].results[i].market_value);
+                manc_loc.push(request.tables[0].results[i].address_value);
+                manc_type.push(request.tables[0].results[i].fueltype_value);
+
+            }
+
+        }
+
+        var mmax = manc[0];
+        var mmaxIndex = 0;
+
+        for (var i = 1; i < manc.length; i++) {
+            if (manc[i] > mmax) {
+                mmaxIndex = i;
+                mmax = manc[i];
+            }
+        }
+
+
+        var mmin = manc[0];
+        var mminIndex = 0;
+
+        for (var i = 1; i < manc.length; i++) {
+            if (manc[i] < mmin) {
+                mminIndex = i;
+                mmin = manc[i];
+            }
+        }
+
+        console.log("this is max " + mmax);
+        console.log("this is index " + mmaxIndex);
+
+        for (i = 0; i < manc.length; i++) {
+            if (i == manc.length - 1) {
+                console.log(i);
+            };
+        }
+
+
+
+        console.log(request.tables[0].results);
+
+
+
+        max_data.push(mmax);
+        min_data.push(mmin);
+        manlog = ("The brand is " + manc_mrkt[mmaxIndex] + " located at " + manc_loc[mmaxIndex] + ".The fuel type for this price is " + manc_type[mmaxIndex])
+
+        manminlog = ("The brand is " + manc_mrkt[mminIndex] + " located at " + manc_loc[mminIndex] + ".The fuel type for this price is " + manc_type[mminIndex])
+            //alert("Max value is c: "+manc.max()+"\nMin value is: "+ manc.min());
+            //alert(max_data);
+        for (i = 0; i < request.tables[0].results.length; i++) {
+            if (request.tables[0].results[i].regionname_value === "ST. ELIZABETH") {
+                //  console.log(request.tables[0].results[i].fuelprice_price);
+                st_eliz.push(request.tables[0].results[i].fuelprice_price);
+                st_eliz_mrkt.push(request.tables[0].results[i].market_value);
+                st_eliz_loc.push(request.tables[0].results[i].address_value);
+                st_eliz_type.push(request.tables[0].results[i].fueltype_value)
+
+            }
+
+        }
+
+        var emax = st_eliz[0];
+        var emaxIndex = 0;
+
+        for (var i = 1; i < st_eliz.length; i++) {
+            if (st_eliz[i] > emax) {
+                emaxIndex = i;
+                emax = st_eliz[i];
+            }
+        }
+
+        var emin = st_eliz[0];
+        var eminIndex = 0;
+
+        for (var i = 1; i < st_eliz.length; i++) {
+            if (st_eliz[i] < emin) {
+                eminIndex = i;
+                emin = st_eliz[i];
+            }
+        }
+
+        console.log("this is max " + emax);
+        console.log("this is index " + emaxIndex);
+
+
+        for (i = 0; i < st_eliz.length; i++) {
+            if (i == st_eliz.length - 1) {
+                console.log(i);
+            };
+        }
+
+
+
+        console.log(request.tables[0].results);
+
+
+
+        max_data.push(emax);
+        min_data.push(emin);
+
+        //alert("Max value is c: "+st_eliz.max()+"\nMin value is: "+ st_eliz.min());
+        //alert(max_data);
+
+        stelizlog = ("The brand is " + st_eliz_mrkt[emaxIndex] + " located at " + st_eliz_loc[emaxIndex] + ".The fuel type for this price is " + st_eliz_type[emaxIndex])
+
+        stelizminlog = ("The brand is " + st_eliz_mrkt[eminIndex] + " located at " + st_eliz_loc[eminIndex] + ".The fuel type for this price is " + st_eliz_type[eminIndex])
+
+
+
+        for (i = 0; i < request.tables[0].results.length; i++) {
+            if (request.tables[0].results[i].regionname_value === "WESTMORELAND") {
+                //  console.log(request.tables[0].results[i].fuelprice_price);
+                west.push(request.tables[0].results[i].fuelprice_price);
+                west_mrkt.push(request.tables[0].results[i].market_value);
+                west_loc.push(request.tables[0].results[i].address_value);
+                west_type.push(request.tables[0].results[i].fueltype_value);
+            }
+        }
+
+        var wmax = west[0];
+        var wmaxIndex = 0;
+
+        for (var i = 1; i < west.length; i++) {
+            if (west[i] > wmax) {
+                wmaxIndex = i;
+                wmax = west[i];
+            }
+        }
+
+        var wmin = west[0];
+        var wminIndex = 0;
+
+        for (var i = 1; i < west.length; i++) {
+            if (west[i] < wmin) {
+                wminIndex = i;
+                wmin = west[i];
+            }
+        }
+
+        console.log("this is max " + wmax);
+        console.log("this is index " + wmaxIndex);
+
+        for (i = 0; i < west.length; i++) {
+            if (i == west.length - 1) {
+                console.log(i);
+            };
+        }
+
+
+
+        console.log(request.tables[0].results);
+
+
+
+        max_data.push(wmax);
+        min_data.push(wmin);
+        westlog = ("The brand is " + west_mrkt[wmaxIndex] + " located at " + west_loc[wmaxIndex] + ".The fuel type for this price is " + west_type[wmaxIndex])
+
+        //alert("Max value is c: "+west.max()+"\nMin value is: "+ west.min());
+        //alert(max_data);
+
+        westminlog = ("The brand is " + west_mrkt[wminIndex] + " located at " + west_loc[wminIndex] + ".The fuel type for this price is " + west_type[wminIndex])
+
+
+
+
+        for (i = 0; i < request.tables[0].results.length; i++) {
+            if (request.tables[0].results[i].regionname_value === "HANOVER") {
+                //  console.log(request.tables[0].results[i].fuelprice_price);
+                hano.push(request.tables[0].results[i].fuelprice_price);
+                hano_mrkt.push(request.tables[0].results[i].market_value);
+                hano_loc.push(request.tables[0].results[i].address_value);
+                hano_type.push(request.tables[0].results[i].fueltype_value)
+
+            }
+        }
+
+        var hmax = hano[0];
+        var hmaxIndex = 0;
+
+        for (var i = 1; i < hano.length; i++) {
+            if (hano[i] > hmax) {
+                hmaxIndex = i;
+                hmax = hano[i];
+            }
+        }
+
+
+        var hmin = hano[0];
+        var hminIndex = 0;
+
+        for (var i = 1; i < hano.length; i++) {
+            if (hano[i] < hmin) {
+                hminIndex = i;
+                hmin = hano[i];
+            }
+        }
+
+        console.log("this is max " + hmax);
+        console.log("this is index " + hmaxIndex);
+
+        for (i = 0; i < hano.length; i++) {
+            if (i == hano.length - 1) {
+                console.log(i);
+            };
+        }
+
+
+
+        console.log(request.tables[0].results);
+
+
+
+        max_data.push(hmax);
+        min_data.push(hmin);
+        hanlog = ("The brand is " + hano_mrkt[hmaxIndex] + " located at " + hano_loc[hmaxIndex] + ".The fuel type for this price is " + hano_type[hmaxIndex])
+
+
+        hanminlog = ("The brand is " + hano_mrkt[hminIndex] + " located at " + hano_loc[hminIndex] + ".The fuel type for this price is " + hano_type[hminIndex])
+            // alert("Max value is c: "+hano.max()+"\nMin value is: "+ hano.min());
+            //alert(max_data);
+
+        for (i = 0; i < request.tables[0].results.length; i++) {
+            if (request.tables[0].results[i].regionname_value === "ST. JAMES") {
+                //  console.log(request.tables[0].results[i].fuelprice_price);
+                st_ja.push(request.tables[0].results[i].fuelprice_price);
+                st_ja_mrkt.push(request.tables[0].results[i].market_value);
+                st_ja_loc.push(request.tables[0].results[i].address_value);
+                st_ja_type.push(request.tables[0].results[i].fueltype_value);
+
+            }
+
+        }
+
+        var jmax = st_ja[0];
+        var jmaxIndex = 0;
+
+        for (var i = 1; i < st_ja.length; i++) {
+            if (st_ja[i] > jmax) {
+                jmaxIndex = i;
+                jmax = st_ja[i];
+            }
+        }
+
+        var jmin = st_ja[0];
+        var jminIndex = 0;
+
+        for (var i = 1; i < st_ja.length; i++) {
+            if (st_ja[i] < jmin) {
+                jminIndex = i;
+                jmin = st_ja[i];
+            }
+        }
+
+        console.log("this is max " + jmax);
+        console.log("this is index " + jmaxIndex);
+
+        for (i = 0; i < st_ja.length; i++) {
+            if (i == st_ja.length - 1) {
+                console.log(i);
+            };
+        }
+
+
+
+        console.log(request.tables[0].results);
+
+
+
+        max_data.push(jmax);
+        min_data.push(jmin);
+
+        stjlog = ("The brand is " + st_ja_mrkt[jmaxIndex] + " located at " + st_ja_loc[jmaxIndex] + ".The fuel type for this price is " + st_ja_type[jmaxIndex])
+
+        stjminlog = ("The brand is " + st_ja_mrkt[jminIndex] + " located at " + st_ja_loc[jminIndex] + ".The fuel type for this price is " + st_ja_type[jminIndex])
+            //alert("Max value is c: "+st_ja.max()+"\nMin value is: "+ st_ja.min());
+            // alert(max_data);
+
+        for (i = 0; i < request.tables[0].results.length; i++) {
+            if (request.tables[0].results[i].regionname_value === "TRELAWNY") {
+                //  console.log(request.tables[0].results[i].fuelprice_price);
+                tre.push(request.tables[0].results[i].fuelprice_price);
+                tre_mrkt.push(request.tables[0].results[i].market_value);
+                tre_loc.push(request.tables[0].results[i].address_value);
+                tre_type.push(request.tables[0].results[i].fueltype_value);
+
+
+            }
+
+        }
+
+        var tmax = tre[0];
+        var tmaxIndex = 0;
+
+        for (var i = 1; i < tre.length; i++) {
+            if (tre[i] > tmax) {
+                tmaxIndex = i;
+                tmax = tre[i];
+            }
+        }
+
+        var tmin = tre[0];
+        var tminIndex = 0;
+
+        for (var i = 1; i < tre.length; i++) {
+            if (tre[i] < tmin) {
+                tminIndex = i;
+                tmin = tre[i];
+            }
+        }
+
+        console.log("this is max " + tmax);
+        console.log("this is index " + tmaxIndex);
+
+        for (i = 0; i < tre.length; i++) {
+            if (i == tre.length - 1) {
+                console.log(i);
+            };
+        }
+
+
+
+        console.log(request.tables[0].results);
+
+
+
+        max_data.push(tmax);
+        min_data.push(tmin);
+        trelog = ("The brand is " + tre_mrkt[tmaxIndex] + " located at " + tre_loc[tmaxIndex] + ".The fuel type for this price is " + tre_type[tmaxIndex])
+
+
+
+        treminlog = ("The brand is " + tre_mrkt[tminIndex] + " located at " + tre_loc[tminIndex] + ".The fuel type for this price is " + tre_type[tminIndex])
+
+        //alert("Max value is c: "+tre.max()+"\nMin value is: "+ tre.min());
+        // alert(max_data);
+
+
+        for (i = 0; i < request.tables[0].results.length; i++) {
+            if (request.tables[0].results[i].regionname_value === "ST. ANN") {
+                //  console.log(request.tables[0].results[i].fuelprice_price);
+                st_ann.push(request.tables[0].results[i].fuelprice_price);
+                st_ann_loc.push(request.tables[0].results[i].address_value);
+                st_ann_mrkt.push(request.tables[0].results[i].market_value);
+                st_ann_type.push(request.tables[0].results[i].fueltype_value);
+
+
+            }
+
+        }
+
+        var amax = st_ann[0];
+        var amaxIndex = 0;
+
+        for (var i = 1; i < st_ann.length; i++) {
+            if (st_ann[i] > amax) {
+                amaxIndex = i;
+                amax = st_ann[i];
+            }
+        }
+
+        var amin = st_ann[0];
+        var aminIndex = 0;
+
+        for (var i = 1; i < st_ann.length; i++) {
+            if (st_ann[i] < amin) {
+                aminIndex = i;
+                amin = st_ann[i];
+            }
+        }
+
+        console.log("this is max " + amax);
+        console.log("this is index " + amaxIndex);
+
+        for (i = 0; i < st_ann.length; i++) {
+            if (i == st_ann.length - 1) {
+                console.log(i);
+            };
+        }
+
+
+
+        console.log(request.tables[0].results);
+
+
+
+        max_data.push(amax);
+        min_data.push(amin);
+        stalog = ("The brand is " + st_ann_mrkt[amaxIndex] + " located at " + st_ann_loc[amaxIndex] + ".The fuel type for this price is " + st_ann_type[amaxIndex])
+
+
+
+        staminlog = ("The brand is " + st_ann_mrkt[aminIndex] + " located at " + st_ann_loc[aminIndex] + ".The fuel type for this price is " + st_ann_type[aminIndex])
+
+        //alert("Max value is c: "+st_ann.max()+"\nMin value is: "+ st_ann.min());
+        //alert(max_data);
+
+        for (i = 0; i < request.tables[0].results.length; i++) {
+            if (request.tables[0].results[i].regionname_value === "ST. MARY") {
+                //  console.log(request.tables[0].results[i].fuelprice_price);
+                st_mry.push(request.tables[0].results[i].fuelprice_price);
+                st_mry_mrkt.push(request.tables[0].results[i].market_value);
+                st_mry_loc.push(request.tables[0].results[i].address_value);
+
+            }
+
+        }
+
+        var stmmax = st_mry[0];
+        var stmmaxIndex = 0;
+
+        for (var i = 1; i < st_mry.length; i++) {
+            if (st_mry[i] > stmmax) {
+                stmmaxIndex = i;
+                stmmax = st_mry[i];
+            }
+        }
+
+        var stmmin = st_mry[0];
+        var stmminIndex = 0;
+
+        for (var i = 1; i < st_mry.length; i++) {
+            if (st_mry[i] < stmmin) {
+                stmminIndex = i;
+                stmmmin = st_mry[i];
+            }
+        }
+
+        console.log("this is max " + stmmax);
+        console.log("this is index " + stmmaxIndex);
+
+        for (i = 0; i < st_mry.length; i++) {
+            if (i == st_mry.length - 1) {
+                console.log(i);
+            };
+        }
+
+
+
+        console.log(request.tables[0].results);
+
+
+
+        max_data.push(stmmax);
+        min_data.push(stmmin);
+        stmlog = ("The brand is " + st_mry_mrkt[stmmaxIndex] + " located at " + st_mry_loc[stmmaxIndex] + ".The fuel type for this price is " + st_cath_type[stmmaxIndex])
+
+
+
+
+        stmminlog = ("The brand is " + st_mry_mrkt[stmminIndex] + " located at " + st_mry_loc[stmminIndex] + ".The fuel type for this price is " + st_cath_type[stmminIndex])
+
+        //alert("Max value is c: "+st_mry.max()+"\nMin value is: "+ st_mry.min());
+        //alert(max_data);
+
+        for (i = 0; i < request.tables[0].results.length; i++) {
+            if (request.tables[0].results[i].regionname_value === "PORTLAND") {
+                //  console.log(request.tables[0].results[i].fuelprice_price);
+                port.push(request.tables[0].results[i].fuelprice_price);
+                port_mrkt.push(request.tables[0].results[i].market_value);
+                port_loc.push(request.tables[0].results[i].address_value);
+                port_type.push(request.tables[0].results[i].fueltype_value);
+
+            }
+
+
+        }
+
+        var pmax = port[0];
+        var pmaxIndex = 0;
+
+        for (var i = 1; i < port.length; i++) {
+            if (port[i] > pmax) {
+                pmaxIndex = i;
+                pmax = port[i];
+            }
+        }
+
+        var pmin = port[0];
+        var pminIndex = 0;
+
+        for (var i = 1; i < port.length; i++) {
+            if (port[i] < pmin) {
+                pminIndex = i;
+                pmin = port[i];
+            }
+        }
+
+        console.log("this is max " + pmax);
+        console.log("this is index " + pmaxIndex);
+
+        for (i = 0; i < port.length; i++) {
+            if (i == port.length - 1) {
+                console.log(i);
+            };
+        }
+        console.log(request.tables[0].results);
+
+
+
+        max_data.push(pmax);
+        min_data.push(pmin);
+        plog = ("The brand is " + port_mrkt[pmaxIndex] + " located at " + port_loc[pmaxIndex] + ".The fuel type for this price is " + port_type[pmaxIndex])
+
+
+        pminlog = ("The brand is " + port_mrkt[pminIndex] + " located at " + port_loc[pminIndex] + ".The fuel type for this price is " + port_type[pminIndex])
+
+        //alert("Max value is c: "+port.max()+"\nMin value is: "+ port.min());
+        //alert(max_data);
+
+        for (i = 0; i < request.tables[0].results.length; i++) {
+            if (request.tables[0].results[i].regionname_value === "ST. THOMAS") {
+                //  console.log(request.tables[0].results[i].fuelprice_price);
+                st_tho.push(request.tables[0].results[i].fuelprice_price);
+                st_tho_mrkt.push(request.tables[0].results[i].market_value);
+                st_tho_type.push(request.tables[0].results[i].fueltype_value);
+                st_tho_loc.push(request.tables[0].results[i].address_value);
+
+
+            }
+
+        }
+
+        var sttmax = st_tho[0];
+        var sttmaxIndex = 0;
+
+        for (var i = 1; i < st_tho.length; i++) {
+            if (st_tho[i] > sttmax) {
+                sttmaxIndex = i;
+                sttmax = st_tho[i];
+            }
+        }
+
+        var sttmin = st_tho[0];
+        var sttminIndex = 0;
+
+        for (var i = 1; i < st_tho.length; i++) {
+            if (st_tho[i] < sttmin) {
+                sttminIndex = i;
+                sttmin = st_tho[i];
+            }
+        }
+
+        console.log("this is max " + sttmax);
+        console.log("this is index " + sttmaxIndex);
+
+        for (i = 0; i < st_tho.length; i++) {
+            if (i == st_tho.length - 1) {
+                console.log(i);
+            };
+        }
+
+
+
+        console.log(request.tables[0].results);
+
+
+
+        max_data.push(sttmax);
+        min_data.push(sttmin);
+
+        sttlog = ("The brand is " + st_tho_mrkt[sttmaxIndex] + " located at " + st_tho_loc[sttmaxIndex] + ".The fuel type for this price is " + st_tho_type[sttmaxIndex])
+
+
+        sttminlog = ("The brand is " + st_tho_mrkt[sttminIndex] + " located at " + st_tho_loc[sttminIndex] + ".The fuel type for this price is " + st_tho_type[sttminIndex])
+
+
+        //alert("Max value is c: "+st_tho.max()+"\nMin value is: "+ st_tho.min());
+        var config = {
+            //alert(max_data);
+            type: 'bar',
+            data: {
+                labels: ["Kingston", "St. Andrew", "St. Catherine", "Clarendon", "Manchester", "St. Elizabeth", "Westmoreland", "Hanover", "St. James", "Trelawny", "St. Ann", "St. Mary", "Portland", "St. Thomas"],
+                datasets: [{
+                        label: " First dataset",
+                        backgroundColor: "rgba(255, 99, 132, 0.2)",
+                        data: max_data
+                    },
+
+                    {
+                        label: " Second dataset",
+                        backgroundColor: "rgba(54, 162, 235, 0.2)",
+                        data: min_data
+                    }
+
+
+                ]
+            }
+        };
+
+        $(function() {
+            var myBar = new Chart(document.getElementById("myChart"), config);
+            document.getElementById("myChart").onclick = function(evt) {
+                var activePoints = myBar.getElementsAtEvent(evt);
+                var firstPoint = activePoints[0];
+                if (firstPoint !== undefined) {
+                    var onclickValue = config.data.datasets[firstPoint._datasetIndex].data[firstPoint._index];
+                    // alert(onclickValue);
+                    var onclickLabels = console.log(config.data.labels[firstPoint._index]);
+                    // console.log(max_data)
+                    // console.log(stcmax +"clar")
+                    if (onclickValue == kmax) {
+                        //console.log(activePoints[0].label);
+                        swal(klog);
+
+                        // alert(activePoints[1].value);
+                    } else if (onclickValue == kmin) {
+                        swal(kminlog)
+                    } else if (onclickValue == kmax) {
+                        //console.log(activePoints[0].label);
+                        swal(kmaxlog);
+
+                        // alert(activePoints[1].value);
+                    } else if (onclickValue == kmin) {
+                        swal(kminlog)
+                    } else if (onclickValue == stcmax) {
+                        //console.log(activePoints[0].label);
+                        swal(stclog);
+
+                        // alert(activePoints[1].value);
+                    } else if (onclickValue == stcmin) {
+                        swal(stcminlog)
+                    } else if (onclickValue == cmax) {
+                        //console.log(activePoints[0].label);
+                        swal(clarlog);
+
+                        // alert(activePoints[1].value);
+                    } else if (onclickValue == cmin) {
+                        swal(stcminlog)
+                    } else if (onclickValue == mmax) {
+                        //console.log(activePoints[0].label);
+                        swal(manlog);
+
+                        // alert(activePoints[1].value);
+                    } else if (onclickValue == mmin) {
+                        swal(manminlog)
+                    } else if (onclickValue == emax) {
+                        //console.log(activePoints[0].label);
+                        swal(stelizlog);
+
+                        // alert(activePoints[1].value);
+                    } else if (onclickValue == emin) {
+                        swal(stelizminlog)
+                    } else if (onclickValue == wmax) {
+                        //console.log(activePoints[0].label);
+                        swal(westlog);
+
+                        // alert(activePoints[1].value);
+                    } else if (onclickValue == wmin) {
+                        swal(kminlog)
+                    } else if (onclickValue == hmax) {
+                        //console.log(activePoints[0].label);
+                        swal(hanlog);
+
+                        // alert(activePoints[1].value);
+                    } else if (onclickValue == hmin) {
+                        swal(hanminlog)
+                    } else if (onclickValue == jmax) {
+                        //console.log(activePoints[0].label);
+                        swal(stjlog);
+
+                        // alert(activePoints[1].value);
+                    } else if (onclickValue == jmin) {
+                        swal(stjminlog)
+                    } else if (onclickValue == tmax) {
+                        //console.log(activePoints[0].label);
+                        swal(trelog);
+
+                        // alert(activePoints[1].value);
+                    } else if (onclickValue == tmin) {
+                        swal(treminlog)
+                    } else if (onclickValue == amax) {
+                        //console.log(activePoints[0].label);
+                        swal(stmlog);
+
+                        // alert(activePoints[1].value);
+                    } else if (onclickValue == amin) {
+                        swal(stmminlog)
+                    } else if (onclickValue == stmmax) {
+                        //console.log(activePoints[0].label);
+                        swal(stmlog);
+
+                        // alert(activePoints[1].value);
+                    } else if (onclickValue == stmmin) {
+                        swal(stmminlog)
+                    } else if (onclickValue == pmax) {
+                        //console.log(activePoints[0].label);
+                        swal(plog);
+
+                        // alert(activePoints[1].value);
+                    } else if (onclickValue == pmin) {
+                        swal(pminlog)
+                    } else if (onclickValue == sttmax) {
+                        //console.log(activePoints[0].label);
+                        swal(sttlog);
+
+                        // alert(activePoints[1].value);
+                    } else if (onclickValue == sttmin) {
+                        swal(sttminlog)
+                    }
+
+                }
+            }
+        });
+        </script>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+
+body{
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+.jumbotron1 {height:100%;
+background-image: url("https://static.pexels.com/photos/92077/pexels-photo-92077.jpeg");
+background-size: cover;
+background-repeat: no-repeat;
+padding-top: 20%;
+padding-bottom: 20%;
+margin: 0px;
+ 
+
+ 
+
+  /* fix background */
+  background-attachment: fixed;
+
+  /* center it */
+  background-position: center center;
+  
+
+  /* just make it look a bit better ;) */
+
+}
+
+
+@media (max-width:1025px) {
+   .jumbotron1 {height:100%;
+  background-size: cover;
+background-repeat: no-repeat;
+padding-top: 20%;
+padding-bottom: 20%;
+margin: 0px;
+ 
+
+ 
+
+  /* fix background */
+  background-attachment: scroll;
+
+  /* center it */
+  background-position: center center;
+  
+
+  /* just make it look a bit better ;) */
+
+}
+}
+
+
+p{
+  font-size: 18px;
+}
+
+.btn{
+  border-radius: 0px;
+}
+
+#parallaxText{
+  color:white;
+  background-color:rgba(0, 0, 0, 0.5);
+  
+}
